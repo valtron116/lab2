@@ -25,7 +25,19 @@ class Tasklist(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.name)      
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return "{}".format(self.name) 
+
+class Register(models.Model):
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+
+    def __str__(self):
+        return "{}".format(self.name) 

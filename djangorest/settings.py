@@ -42,6 +42,32 @@ INSTALLED_APPS = [
     'tags_input',
 ]
 
+TAGS_INPUT_MAPPINGS = {
+    'todolist.SomeKeyword': {
+        'field': 'some_field',
+    },
+    'todolist.SomeOtherKeyword': {
+        'fields': ('some_field', 'some_other_field'),
+    },
+    'todolist.SomeSortedKeyword': {
+        'field': 'some_field',
+        'ordering': [
+            'some_field',
+            'some_other_field',
+        ],
+        'filters': {
+            'some_field__istartswith': 'a',
+        },
+        'excludes': {
+            'some_field__iexact': 'foobar',
+        },
+    },
+    'todolist.SomeCreateableKeyword': {
+        'field': 'some_field',
+        'create_missing': True,
+    },
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
